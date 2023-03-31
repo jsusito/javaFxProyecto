@@ -13,7 +13,7 @@
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-controls</artifactId>
-			<version>16</version>
+			<version>17</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-fxml</artifactId>
-			<version>16</version>
+			<version>17</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -61,30 +61,19 @@
 				</executions>
 			</plugin>
 			<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.4.2</version>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <!-- MainClass in mainfest make a executable jar -->
-                    <archive>
-                        <manifest>
-                            <mainClass>com.tokio.proyectofinal.App</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-jar-plugin</artifactId>
+			    <version>3.2.0</version>
+			    <configuration>
+			        <archive>
+			            <manifest>
+			                <addClasspath>true</addClasspath>
+			                <mainClass>com.tokio.proyectofinal.App</mainClass>
+			            </manifest>
+			        </archive>
+			    </configuration>
+			</plugin>
+
 			
 		</plugins>
 	</build>
